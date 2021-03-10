@@ -17,6 +17,11 @@ import org.junit.Test;
 
 import com.lcs.algoService.ILcsAccess;
 
+/**
+ * 
+ * @author craig
+ * Unit test for servlet is OBE since HttpServlet won't work with dependency injection
+ */
 public class LcsJsonWebBoundaryTests {
 	
 	private LcsJsonWebBoundary servlet;

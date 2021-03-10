@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 
 import com.lcs.algoService.ILcsAccess;
+import com.lcs.factories.WebBoundaryFactory;
 
 @WebServlet(
         name = "longestCommonString",
@@ -24,12 +25,17 @@ import com.lcs.algoService.ILcsAccess;
 public class LcsJsonWebBoundary extends HttpServlet
 {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private IJsonParser jsonParser;
 	private ILcsAccess lcsAccess;
 
-	public LcsJsonWebBoundary(IJsonParser jsonParser, ILcsAccess lcsAccess) {
-		this.jsonParser = jsonParser;
-		this.lcsAccess = lcsAccess;
+	public LcsJsonWebBoundary() {
+		WebBoundaryFactory factory = new WebBoundaryFactory();
+		this.jsonParser = factory.getJsonParser();
+		this.lcsAccess = factory.getAlgorithmService();
 	}
 	
 	@Override
