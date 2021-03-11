@@ -67,6 +67,7 @@ public class LcsJsonWebBoundary extends HttpServlet
 		List<String> result = lcsAccess.getLongestCommonString(setOfStrings);
 		String resultJson = jsonParser.convertStringsToJson(result);
 		
+		System.out.println("Do we get to here?");
 		resp.setContentType("application/json");
 		PrintWriter writer = resp.getWriter();
 		writer.print(resultJson);

@@ -1,1 +1,12 @@
-"{\"setOfStrings\": [ {\"value\":\"comcast\"},{\"value\":\"comcastic\"}, {\"value\":\"broadcast\"}] }"
+{
+    "setOfStrings": [{
+            "value": "bluecomcast"
+        },
+        {
+            "value": "comcasticblue"
+        },
+        {
+            "value": "bluebroadcast"
+        }
+    ]
+}

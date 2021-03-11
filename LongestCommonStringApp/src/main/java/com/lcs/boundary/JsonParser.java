@@ -31,18 +31,18 @@ public class JsonParser implements IJsonParser{
 		  
 		  System.out.println(jb.toString());
 		  
-		  /*
-		  Gson gson = new Gson();
-		  Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
-		  Collection<String> jsonStrings = gson.fromJson(jb.toString(), collectionType);
-		  for(String thisString: jsonStrings)
-		  {
-			  setOfStrings.add(thisString);
-		  }
+		  
+//		  Gson gson = new Gson();
+//		  Type collectionType = new TypeToken<ArrayList<String>>(){}.getType();
+//		  Collection<String> jsonStrings = gson.fromJson(jb.toString(), collectionType);
+//		  for(String thisString: jsonStrings)
+//		  {
+//			  setOfStrings.add(thisString);
+//		  }
 
-		    JSONObject jsonObject =  HTTP.toJSONObject(jb.toString());
-		    JSONArray setOfStringsJson = jsonObject.getJSONArray("setOfStrings");
-		    for(Object thisJSONObject : setOfStringsJson)
+		    JSONObject jsonObject =  new JSONObject(jb.toString());
+		    JSONArray jsonArray = jsonObject.getJSONArray("setOfStrings");
+		    for(Object thisJSONObject : jsonArray)
 		    {
 		    	if(thisJSONObject instanceof JSONObject)
 		    	{
@@ -51,17 +51,29 @@ public class JsonParser implements IJsonParser{
 		    	}
 		    	else
 		    	{
+		    		System.out.println("Not an array of value pairs");
 		    		throw new JSONException("JSONObject not a string");
 		    	}
 		    	
 		    }
-		  */
+		  
 		  return setOfStrings;
 	}
 
 	public String convertStringsToJson(List<String> result) {
-		// TODO Auto-generated method stub
-		return null;
+		String jsonString ="{\"lcs\":[";
+		for(String thisString: result)
+		{
+			jsonString = jsonString+"{\"value\":\""+thisString+"\"},";
+		}
+		jsonString = removeExtraCommaFromEnd(jsonString);
+		jsonString = jsonString + "]}";
+		System.out.println(jsonString);
+		return jsonString;
+	}
+
+	private String removeExtraCommaFromEnd(String jsonString) {
+		return jsonString.substring(0, jsonString.length()-1);
 	}
 
 }
