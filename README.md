@@ -17,8 +17,12 @@ mvn tomcat7:run
 
 Let servlet begin running(should see 'Starting ProtocolHandler')
 
-Enter the following into the commandline:
+In another terminal, at the same directory level,
+enter the following into the commandline:
 
 curl -d @request.json -H "Content-Type: application/json" -X POST  http://localhost:8080/LongestCommonStringApp/LCS
 
 You can observe the results of the LCS in json format in the response on the console.
+The Unit Tests can be run with the command:
+
+mvn clean test
