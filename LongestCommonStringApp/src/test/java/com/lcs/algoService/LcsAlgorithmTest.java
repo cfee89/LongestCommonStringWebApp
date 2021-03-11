@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class LcsAlgorithmTests {
+public class LcsAlgorithmTest {
 
 	@Test
 	public void GivenValidSetWithOneCommonString_WhenLongestCommonStringFound_ReturnAsSet() {
